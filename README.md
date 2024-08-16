@@ -1,17 +1,32 @@
-# AI_Chatbot
+# AI Chatbot
 
-## Description
+## Overview
 
-The AI Chatbot is a banking assistant designed to handle various customer queries related to credit and debit cards. It utilizes machine learning models to provide accurate and helpful responses to user inquiries.
+The AI Chatbot is a banking assistant application designed to handle a variety of customer queries related to credit cards, debit cards, accounts, etc. It uses machine learning models to understand and respond to user inputs. The chatbot employs both Support Vector Machine (SVM) and Random Forest Classifier models for predicting responses based on user queries.
 
-### Features
+## Features
 
-- **Support Vector Machine (SVM)**: Uses a linear kernel for classifying user queries.
-- **Random Forest Classifier**: A robust ensemble method for classifying user queries.
-- **TF-IDF Vectorization**: Transforms text data into numerical vectors for model training.
-- **Oversampling and Undersampling**: Addresses class imbalance in the dataset.
+- **Support Vector Machine (SVM)**: A machine learning model that classifies user queries using a linear kernel.
+- **Random Forest Classifier**: An ensemble model that uses multiple decision trees to classify user queries.
+- **TF-IDF Vectorization**: Converts text data into numerical vectors, capturing the importance of words in the dataset.
+- **Oversampling and Undersampling**: Techniques to balance class distribution in the training dataset.
+- **Interactive CLI Interface**: A command-line interface allowing users to interact with the chatbot.
 
-### Installation
+## Libraries Used
+
+- **scikit-learn**: Provides tools for machine learning including:
+  - `TfidfVectorizer` for transforming text data into numerical features.
+  - `train_test_split` for splitting the dataset into training and testing sets.
+  - `SVC` (Support Vector Classifier) for building the SVM model.
+  - `RandomForestClassifier` for building the Random Forest model.
+  - `accuracy_score` for evaluating model performance.
+- **imblearn**: Contains methods for dealing with imbalanced datasets:
+  - `RandomOverSampler` for oversampling the minority class.
+  - `RandomUnderSampler` for undersampling the majority class.
+- **termcolor**: Provides support for colored terminal output.
+- **time**: Used for adding delays and timestamps in console output.
+
+## Installation
 
 1. **Clone the Repository:**
    ```bash
@@ -30,7 +45,7 @@ The AI Chatbot is a banking assistant designed to handle various customer querie
    pip install -r requirements.txt
    ```
 
-### Usage
+## Usage
 
 1. **Run the Chatbot:**
    ```bash
@@ -38,31 +53,45 @@ The AI Chatbot is a banking assistant designed to handle various customer querie
    ```
 
 2. **Interact with the Chatbot:**
-   - You will be prompted to enter your questions.
+   - After running the script, the chatbot will prompt you to enter your questions.
+   - Type your query related to banking services and press Enter.
+   - The chatbot will respond based on the predictions from both SVM and Random Forest models.
    - Type `quit`, `exit`, or `q` to exit the chatbot.
 
-### File Structure
+## Code Explanation
 
-- `chatbot.py`: Contains the implementation of the `BankingChatbot` class and the main script for running the chatbot.
-- `requirements.txt`: Lists the Python packages required to run the chatbot.
-- `.gitignore`: Specifies files and directories to be ignored by Git.
-- `conncetion_info.txt : Connection information.
+- **Class `BankingChatbot`**:
+  - **`__init__`**: Initializes the chatbot and sets up the TF-IDF vectorizer and machine learning models.
+  - **`train_ml_models`**: Trains the SVM and Random Forest models using the provided dataset. The dataset is split into training and testing sets, and the models are evaluated for accuracy.
+  - **`predict_svm_response`**: Uses the SVM model to predict the response for a given query.
+  - **`predict_rf_response`**: Uses the Random Forest model to predict the response for a given query.
+  - **`respond`**: Combines predictions from both models and formats the response.
 
-### Dependencies
+- **Synthetic Dataset**:
+  - A synthetic dataset is generated and balanced using oversampling and undersampling techniques for training the models.
 
-- `scikit-learn`: For machine learning models and text vectorization.
-- `imblearn`: For handling imbalanced datasets.
-- `termcolor`: For colored terminal output.
+- **Interactive CLI**:
+  - A command-line interface allows users to interact with the chatbot. User inputs are timestamped, and the responses are displayed with a delay for a natural conversational experience.
 
-### Example Dataset
+## Example Dataset
 
-The example dataset used in this project contains sample queries and responses related to banking services. It is used to train the machine learning models.
+The example dataset used for training contains sample queries and responses related to:
+- Credit card rewards redemption.
+- Annual fee inquiries.
+- Credit limit increases.
+- Security features.
+- Debit card activation.
+- Withdrawal limits.
+- Benefits and transaction alerts.
+- Types of accounts
+  
+## Contribution
 
-### Contribution
+Contributions to this project are welcome! Please open an issue or submit a pull request if you have improvements or suggestions.
 
-Contributions are welcome! Please open an issue or submit a pull request if you would like to contribute to this project.
+## License
 
-### License
+This project is open to all and is released under a permissive license. You are free to use, modify, and distribute the work without copyright restrictions.
 
 ## Author
 Aarya Shirbhate
