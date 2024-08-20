@@ -1,6 +1,6 @@
 # AI Chatbot
 
-[scikit-learn](https://scikit-learn.org/)
+![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
 
 ## Overview
 
